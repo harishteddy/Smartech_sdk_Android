@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tv_logout: {
                 SharedPreferenceHelper.putBoolean(this, Keys.IS_USER_LOGGED_IN, false);
                 SharedPreferenceHelper.putString(this, Keys.LOGGED_IN_USER_IDENTITY, null);
-                Smartech.getInstance(new WeakReference<>(this)).logoutAndClearUserIdentity(true);
+                Smartech.getInstance(new WeakReference<>(this)).logoutAndClearUserIdentity(false);
 
                 startActivity(new Intent(this, LoginActivity.class));
                 Toast.makeText(this, R.string.you_are_logged_out, Toast.LENGTH_SHORT).show();

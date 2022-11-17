@@ -14,7 +14,7 @@ import com.netcore.smartech.sample.utils.Keys;
 import com.netcore.smartech.sample.utils.SharedPreferenceHelper;
 import java.lang.ref.WeakReference;
 
-import io.hansel.hanselsdk.Hansel;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edIdentity;
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }
-        Hansel.pairTestDevice(getIntent().getDataString());
+        /*Hansel.pairTestDevice(getIntent().getDataString());*/
         new BroadcastReceiver().onReceive(this, getIntent());
         setContentView(R.layout.activity_login);
         init();

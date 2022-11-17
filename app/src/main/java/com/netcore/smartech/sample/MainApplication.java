@@ -9,15 +9,20 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.netcore.android.Smartech;
 import java.lang.ref.WeakReference;
+
+import com.netcore.android.inapp.InAppCustomHTMLListener;
 import com.netcore.android.logger.SMTDebugLevel;
 import com.netcore.android.smartechpush.SmartPush;
 import com.netcore.android.smartechpush.notification.SMTNotificationOptions;
 import com.netcore.smartech.sample.receiver.BroadcastReceiver;
 
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,7 +31,7 @@ import io.hansel.core.logger.HSLLogLevel;
 // we need to add depandancy app level gradle then it will give application class inside the application class oncreate()
 //deep link created and notification addedd and fcm token will generated
 
-public class MainApplication extends android.app.Application {
+public class MainApplication extends android.app.Application implements InAppCustomHTMLListener {
     private static final String TAG = "smartech";
     @Override
     public void onCreate() {
@@ -34,8 +39,12 @@ public class MainApplication extends android.app.Application {
         //initialise the sdk
       Smartech smartech=  Smartech.getInstance(new WeakReference<>(this));
       smartech.initializeSdk(this);
-      smartech.setDebugLevel(SMTDebugLevel.Level.VERBOSE);//Enabling Smartech sdk logs for testing.
+      smartech.setInAppCustomHTMLListener(this);
       smartech.trackAppInstallUpdateBySmartech();//Tracking app install/update event.
+      smartech.setDebugLevel(SMTDebugLevel.Level.VERBOSE);//Enabling Smartech sdk logs for testing.
+
+
+
 
         // fetch exist token from firebase app
 
@@ -43,7 +52,7 @@ public class MainApplication extends android.app.Application {
             SmartPush smartPush = SmartPush.getInstance(new WeakReference<>(this));
             smartPush.fetchAlreadyGeneratedTokenFromFCM();
         } catch (Exception e) {
-            Log.e(TAG, "Fetching FCM token failed.");
+
         }
 
         // enabling logs for nudges prodcut
@@ -66,7 +75,7 @@ public class MainApplication extends android.app.Application {
          * @param resId - Resource Id of the drawable to be set as notification icon.
          **/
 
-        //notification icon
+       /* //notification icon
         SMTNotificationOptions options = new SMTNotificationOptions(this);
         options.setBrandLogo("logo"); //e.g.logo is sample name for brand logo
         options.setLargeIcon("icon_nofification");//e.g.ic_notification is sample name for large icon
@@ -75,7 +84,7 @@ public class MainApplication extends android.app.Application {
         options.setTransparentIconBgColor("#FF0000");
         options.setPlaceHolderIcon("ic_notification");//e.g.ic_notification is sample name for placeholder icon
         SmartPush.getInstance(new WeakReference(this)).setNotificationOptions(options);
-
+*/
         // fetchFCMToken(this);
 
 
@@ -123,4 +132,8 @@ public class MainApplication extends android.app.Application {
         }
     }
 
+    @Override
+    public void customHTMLCallback(@Nullable HashMap<String, Object> hashMap) {
+        Log.i("InAPP", hashMap.toString());
+    }
 }

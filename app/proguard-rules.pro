@@ -17,3 +17,4 @@
 -keep class com.netcore.android.smartechpush.**{*;}
 -keep class * implements com.netcore.android.smartechpush.**.* {*;}
 -keep class * extends com.netcore.android.smartechpush.**.* {*;}
+

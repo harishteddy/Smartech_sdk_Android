@@ -9,7 +9,9 @@ public class FCMService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+        Log.v("Received Notification ",remoteMessage.getData().toString());
         boolean pushHandledBySmartech = SmartPush.getInstance(new WeakReference<>(getApplicationContext())).handlePushNotification(remoteMessage.getData().toString());
+        Log.v("message ",remoteMessage.getData().toString());
         if (!pushHandledBySmartech){
             // Handle notification from other sources.
         }
@@ -19,5 +21,6 @@ public class FCMService extends FirebaseMessagingService {
         super.onNewToken(s);
         Log.i("fcmtoken",s);
         SmartPush.getInstance(new WeakReference<>(this)).setDevicePushToken(s);
+
     }
 }
