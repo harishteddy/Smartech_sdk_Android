@@ -75,16 +75,12 @@ public class MainApplication extends android.app.Application implements InAppCus
          * @param resId - Resource Id of the drawable to be set as notification icon.
          **/
 
-       /* //notification icon
+        //notification icon
         SMTNotificationOptions options = new SMTNotificationOptions(this);
-        options.setBrandLogo("logo"); //e.g.logo is sample name for brand logo
-        options.setLargeIcon("icon_nofification");//e.g.ic_notification is sample name for large icon
-        options.setSmallIcon("ic_action_play"); //e.g.ic_action_play is sample name for icon
-        options.setSmallIconTransparent("ic_action_play"); //e.g.ic_action_play is sample name for transparent small icon
-        options.setTransparentIconBgColor("#FF0000");
-        options.setPlaceHolderIcon("ic_notification");//e.g.ic_notification is sample name for placeholder icon
+        options.setBrandLogo(String.valueOf(R.drawable.img_netcore)); //e.g.logo is sample name for brand logo
+        options.setLargeIcon(String.valueOf(R.drawable.img_netcore));//e.g.ic_notification is sample name for large icon
+        options.setTransparentIconBgColor("#ff5f00");
         SmartPush.getInstance(new WeakReference(this)).setNotificationOptions(options);
-*/
         // fetchFCMToken(this);
 
 

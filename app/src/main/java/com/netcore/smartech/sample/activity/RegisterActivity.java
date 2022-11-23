@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         init();
 
 
-//Create an instance of HanselActionListener
+       //Create an instance of HanselActionListener
         HanselActionListener hanselActionListener = new HanselActionListener() {
             @Override
             public void onActionPerformed(String action) {
@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         };
 
-//Register the instance with this line:
+     //Register the instance with this line:
         Hansel.registerHanselActionListener("action Name", hanselActionListener);
 
 

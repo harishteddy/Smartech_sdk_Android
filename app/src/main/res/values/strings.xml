@@ -31,8 +31,12 @@
     <string name="register">Register</string>
     <string name="registration_successful">Registration Successful.</string>
     <string name="set_location">Set Location</string>
+    <string name="app_inbox">App Inbox</string>
+    <string name="custom_app_inbox">Custom AppInbox</string>
+    <string name="you_don_t_have_notification">There are no notification for you</string>
+    <string name="notification">Notification</string>
     <string name="set_update_user_identity">Set/Update User Identity</string>
-    <string name="smartech_sdk_version">Smartech SDK v3.2.22</string>
+    <string name="smartech_sdk_version">Smartech SDK v3.2.29</string>
     <string name="thank_you">Thank you.</string>
     <string name="tracking_add_to_cart">Tracking Add to Cart.</string>
     <string name="tracking_add_to_wish_list">Tracking Add to Wishlist.</string>

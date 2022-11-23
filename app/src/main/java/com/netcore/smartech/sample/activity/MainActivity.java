@@ -5,8 +5,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +16,12 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 
 import com.netcore.android.Smartech;
+import com.netcore.android.smartechappinbox.SmartechAppInbox;
 import com.netcore.smartech.sample.R;
 import com.netcore.smartech.sample.utils.Keys;
 import com.netcore.smartech.sample.utils.SharedPreferenceHelper;
+import com.netcore.smartech.sample.utils.SmartechHelper;
+import com.netcore.smartech.sample.utils.Utility;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -30,9 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
-
         requestPermissions();
     }
 
@@ -41,32 +44,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_fcm_token: {
-                /*String fcmToken = SmartechHelper.getDevicePushToken(this);
+                String fcmToken = SmartechHelper.getDevicePushToken(this);
                 if (!TextUtils.isEmpty(fcmToken)) {
                     Utility.copyToClipboard(this, "FCM Token", fcmToken);
                     Toast.makeText(this, R.string.copied, Toast.LENGTH_SHORT).show();
-                }*/
-
-
+                }
             }
             break;
 
             case R.id.tv_guid: {
-                /*String guid = SmartechHelper.getDeviceUniqueId(this);
+                String guid = SmartechHelper.getDeviceUniqueId(this);
                 if (!TextUtils.isEmpty(guid)) {
                     Utility.copyToClipboard(this, "Smartech GUID", guid);
                     Toast.makeText(this, R.string.copied, Toast.LENGTH_SHORT).show();
-                }*/
-
-                //Create an instance of HanselActionListener
+                }
 
 
-//Register the instance with this line:
-
-                //Create an instance of HanselActionListener
-
-
-               // Hansel.registerHanselActionListener("Action2", hanselActionListener);
 
                 HashMap<String, Object> propertiesMap = new HashMap<>();
                 propertiesMap.put("hari", "anything");
@@ -74,11 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
 
-
-
-
             case R.id.tv_add_to_cart: {
-
                 HashMap<String, Object> payload = new HashMap<>();
                 payload.put("name", "T-shirt");
                 payload.put("prid", 2);
@@ -92,7 +81,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
 
             case R.id.tv_checkout: {
+                HashMap<String, Object> payload = new HashMap<>();
+                payload.put("name", "Mobile");
+                payload.put("prid", 2);
+                payload.put("price", 15000.00);
+                payload.put("color", "red");
+                payload.put("quantity", "2");
 
+                Smartech.getInstance(new WeakReference<>(this)).trackEvent("Checkout", payload);
+                Toast.makeText(this, R.string.tracking_checkout, Toast.LENGTH_SHORT).show();
 
 
                 HanselActionListener hanselActionListener = new HanselActionListener() {
@@ -104,53 +101,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 };
                 Hansel.registerHanselActionListener("PhysicsWallah Testing", hanselActionListener);
 
-               /* HashMap<String, Object> payload = new HashMap<>();
+
+            }
+            break;
+
+            case R.id.tv_add_to_wish_list: {
+                HashMap<String, Object> payload = new HashMap<>();
                 payload.put("name", "Mobile");
                 payload.put("prid", 2);
                 payload.put("price", 15000.00);
                 payload.put("color", "red");
                 payload.put("quantity", "2");
 
-                Smartech.getInstance(new WeakReference<>(this)).trackEvent("Checkout", payload);
-                Toast.makeText(this, R.string.tracking_checkout, Toast.LENGTH_SHORT).show();*/
-            }
-            break;
+                Smartech.getInstance(new WeakReference<>(this)).trackEvent("whish list", payload);
+                Toast.makeText(this, R.string.tracking_checkout, Toast.LENGTH_SHORT).show();
 
-            case R.id.tv_add_to_wish_list: {
+
                 Toast.makeText(this, R.string.tracking_add_to_wish_list, Toast.LENGTH_SHORT).show();
             }
 
             break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             case R.id.tv_update_profile: {
-                // NOTE: User profile should be set only when user identity is present in Smartech SDK.
-//                String identity = SmartechHelper.getUserIdentity(this);
-//                if (!TextUtils.isEmpty(identity)) {
+               // NOTE: User profile should be set only when user identity is present in Smartech SDK.
+            String identity = SmartechHelper.getUserIdentity(this);
+              if (!TextUtils.isEmpty(identity)) {
                 startActivity(new Intent(this, ProfileActivity.class));
-//                } else {
-//                    Toast.makeText(this, R.string.please_login_first, Toast.LENGTH_SHORT).show();
-//                }
+                }
+              else {
+                  Toast.makeText(this, R.string.please_login_first, Toast.LENGTH_SHORT).show();
+                }
             }
             break;
 
@@ -183,6 +163,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, R.string.default_user_location_set, Toast.LENGTH_SHORT).show();
             }
             break;
+            case R.id.tv_appinox:{
+
+                SmartechAppInbox smartechAppInbox = SmartechAppInbox.getInstance(new WeakReference<>(getApplicationContext()));
+                smartechAppInbox.displayAppInbox(MainActivity.this);
+                Toast.makeText(getApplicationContext(),"Appinbox",Toast.LENGTH_SHORT).show();
+            }
+
+            case R.id.tv_customappinox:{
+                startActivity(new Intent(MainActivity.this,AppInboxActivity.class));
+
+            }
         }
     }
 
@@ -205,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void init() {
-        /*String fcmToken = SmartechHelper.getDevicePushToken(this);
+        String fcmToken = SmartechHelper.getDevicePushToken(this);
         if (!TextUtils.isEmpty(fcmToken)) {
             TextView tvFcmToken = findViewById(R.id.tv_fcm_token);
             tvFcmToken.setText(fcmToken);
@@ -217,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             TextView tvGuid = findViewById(R.id.tv_guid);
             tvGuid.setText(guid);
             tvGuid.setOnClickListener(this);
-        }*/
+        }
 
         findViewById(R.id.tv_add_to_cart).setOnClickListener(this);
         findViewById(R.id.tv_checkout).setOnClickListener(this);
@@ -226,19 +217,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.tv_update_profile).setOnClickListener(this);
         findViewById(R.id.tv_clear_identity).setOnClickListener(this);
         findViewById(R.id.tv_set_location).setOnClickListener(this);
+        findViewById(R.id.tv_appinox).setOnClickListener(this);
+        findViewById(R.id.tv_customappinox).setOnClickListener(this);
         findViewById(R.id.tv_logout).setOnClickListener(this);
 
         SwitchCompat swOptPn, swOptInApp, swOptTracking;
         swOptPn = findViewById(R.id.sw_opt_pn);
-        //swOptPn.setChecked(SmartechHelper.hasOptedPushNotification(this));
+        swOptPn.setChecked(SmartechHelper.hasOptedPushNotification(this));
         swOptPn.setOnCheckedChangeListener(this);
 
         swOptInApp = findViewById(R.id.sw_opt_in_app);
-        //swOptInApp.setChecked(SmartechHelper.hasOptedInAppMessage(this));
+        swOptInApp.setChecked(SmartechHelper.hasOptedInAppMessage(this));
         swOptInApp.setOnCheckedChangeListener(this);
 
         swOptTracking = findViewById(R.id.sw_opt_tracking);
-        //swOptTracking.setChecked(SmartechHelper.hasOptedTracking(this));
+        swOptTracking.setChecked(SmartechHelper.hasOptedTracking(this));
         swOptTracking.setOnCheckedChangeListener(this);
     }
 

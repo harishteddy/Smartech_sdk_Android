@@ -13,16 +13,12 @@ import com.netcore.smartech.sample.receiver.BroadcastReceiver;
 import com.netcore.smartech.sample.utils.Keys;
 import com.netcore.smartech.sample.utils.SharedPreferenceHelper;
 import java.lang.ref.WeakReference;
-
-
-
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edIdentity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         boolean isUserLoggedIn = SharedPreferenceHelper.getBoolean(this, Keys.IS_USER_LOGGED_IN, false);
         String loggedInUserIdentity = SharedPreferenceHelper.getString(this, Keys.LOGGED_IN_USER_IDENTITY, null);
         if (isUserLoggedIn && !TextUtils.isEmpty(loggedInUserIdentity)) {
@@ -47,8 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Smartech.getInstance(new WeakReference<>(this)).setUserIdentity(identity);
                     startActivity(new Intent(this, MainActivity.class));
                     finish();
-
-
                 } else {
                     Toast.makeText(this, R.string.enter_email_id, Toast.LENGTH_SHORT).show();
                 }

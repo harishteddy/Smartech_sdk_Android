@@ -56,6 +56,21 @@ dependencies {
     implementation 'com.netcore.android:smartech-nudges:8.8.12'
     implementation 'com.netcore.android:smartech-appinbox:3.2.10'
 
+    // Butterknife
+    // For Annotation
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0") {
+        exclude group: "com.android.support"
+    }
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0@aar") {
+        transitive = true
+    }
+
 
    /* implementation 'com.netcore.android:smartech-sdk:3.2.9'
     implementation 'com.netcore.android:smartech-push:3.2.6'

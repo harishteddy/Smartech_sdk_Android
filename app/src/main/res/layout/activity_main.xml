@@ -158,6 +158,17 @@
             android:text="@string/advanced" />
 
         <TextView
+            android:id="@+id/tv_appinox"
+            style="@style/SectionItemStyle"
+            android:text="@string/app_inbox"
+            app:drawableStartCompat="@drawable/ic_notifications_24" />
+        <TextView
+            android:id="@+id/tv_customappinox"
+            style="@style/SectionItemStyle"
+            android:text="@string/custom_app_inbox"
+            app:drawableStartCompat="@drawable/ic_notifications_24" />
+
+        <TextView
             android:id="@+id/tv_set_location"
             style="@style/SectionItemStyle"
             android:text="@string/set_location"
