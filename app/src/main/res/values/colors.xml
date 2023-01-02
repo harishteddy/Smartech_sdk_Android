@@ -7,6 +7,8 @@
     <color name="colorGrey">#9E9E9E</color>
     <color name="colorLightGrey">#F1F1F1</color>
     <color name="black">#FF000000</color>
+    <color name="action_button_dcolor">#993f6c87</color>
+    <color name="colorWhite">#FFFFFF</color>
 
 
 </resources>

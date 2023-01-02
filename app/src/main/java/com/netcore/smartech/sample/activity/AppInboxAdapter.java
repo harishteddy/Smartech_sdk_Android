@@ -10,13 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.netcore.android.smartechappinbox.SmartechAppInbox;
 import com.netcore.android.smartechappinbox.network.model.SMTInboxMessageData;
 import com.netcore.smartech.sample.R;
 
@@ -33,6 +36,7 @@ public class AppInboxAdapter extends RecyclerView.Adapter<AppInboxAdapter.ViewHo
     private static final String TAG = "AppInboxAdapter";
     private List<SMTInboxMessageData> list;
     Context mcontext;
+    SmartechAppInbox smartechAppInbox;
 
     public AppInboxAdapter(List<SMTInboxMessageData> list, Context mcontext) {
         this.list = list;
@@ -45,9 +49,14 @@ public class AppInboxAdapter extends RecyclerView.Adapter<AppInboxAdapter.ViewHo
         View v = inflater.inflate(R.layout.ac_details_app_inbox_list_item, parent, false);
         final ViewHolder mViewHolder = new ViewHolder(v);
 
+
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Toast.makeText(mcontext, "Clicked Laugh Vote"+list.toString(), Toast.LENGTH_SHORT).show();
+               // smartechAppInbox.markMessageAsClicked("deeplink", list.get(0));
+
 /*                try{
                     int position=mViewHolder.getAdapterPosition();
 
@@ -75,18 +84,15 @@ public class AppInboxAdapter extends RecyclerView.Adapter<AppInboxAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         try{
             holder.textViews.get(0).setText(list.get(position).getSmtPayload().getTitle());
-
-
             Date timeD = new Date(list.get(position).getSmtPayload().getTimestamp() * 1000);
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
             String Time = sdf.format(timeD);
 
             holder.textViews.get(1).setText(Time);
-
             holder.textViews.get(2).setText(list.get(position).getSmtPayload().getBody());
 
             Glide.with(mcontext).load(list.get(position).getSmtPayload().getMediaUrl()).into(new CustomTarget<Drawable>() {
@@ -96,6 +102,8 @@ public class AppInboxAdapter extends RecyclerView.Adapter<AppInboxAdapter.ViewHo
                         holder.imgNotification.setBackground(resource);
                     }
                 }
+
+
 
                 @Override
                 public void onLoadCleared(@Nullable Drawable placeholder) {

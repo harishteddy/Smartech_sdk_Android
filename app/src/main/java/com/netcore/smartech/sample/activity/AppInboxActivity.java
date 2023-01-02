@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -94,6 +96,19 @@ public class AppInboxActivity extends AppCompatActivity {
                                             recyclerView.setVisibility(View.VISIBLE);
                                             adapter=new AppInboxAdapter(list,mContext);
                                             recyclerView.setAdapter(adapter);
+                                           //viewed
+                                          //  when user view all
+                                            recyclerView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+                                                @Override
+                                                public void onScrollChanged() {
+                                                   if (list != null) {
+                                                       smartechAppInbox.markMessageAsViewed(list.get(0));
+                                                   }
+
+
+                                                }
+                                            });
+
                                         }
                                     });
                                 }

@@ -18,6 +18,17 @@
         android:theme="@style/AppTheme" >
 
         <activity
+            android:name=".activity.Dynamicview"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.ListInListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.IgnoreViewActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".activity.AppInboxActivity"
             android:exported="true" />
 
@@ -62,38 +73,43 @@
             android:parentActivityName=".activity.LoginActivity" />
         <activity
             android:name=".activity.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="hansel" />
+                <data android:scheme="harishandroid" />
             </intent-filter>
-            -->
 
 
 
         </activity> <!-- meta data for adding ID and App Key -->
-     <!--   <meta-data
+        <meta-data
             android:name="HANSEL_APP_ID"
-            android:value="ZPT3CBC6XWUE7N6HLD0OCK3DO" />
+            android:value="O032WHH4VDVY9R9QE1486YHTA" />
         <meta-data
             android:name="HANSEL_APP_KEY"
-            android:value="XQL1K8SV62VR1LU3JB8HDDX3SD3W5FTYL80CYECMM7YCUFCYH3" />-->
+            android:value="KF7W5ANHUE36XMXMT4ETL146OJIOJFCYLSP438RY57SBRIAS2G" />
        <!-- Netcorepx_row panel id
 -->
+       <!-- <meta-data
+                   android:name="SMT_APP_ID"
+                   android:value="e3d6132c17ee8a9dcb3b816ade032cb5" /> -->
+
+
+       <!-- aipanel-->
         <meta-data
                    android:name="SMT_APP_ID"
-                   android:value="e3d6132c17ee8a9dcb3b816ade032cb5" />
+                   android:value="97e11d692e102ac422570ee5fd49a2a3" />
         <!-- Teamba panel app id-->
         <!--<meta-data
             android:name="SMT_APP_ID"

@@ -9,17 +9,29 @@
         <entry key="..\:/HarishReddy/Netcore/smartechsdk-android-sample-push-notifications/smartechsdk-android-sample/smartechsdk-android-sample/app/src/main/res/layout/activity_register.xml" value="0.15208333333333332" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/bg_round_corner_orange.xml" value="0.114" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_account_circle_24.xml" value="0.1525" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_baseline_dynamic_feed_24.xml" value="0.1" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_baseline_notifications_none_24.xml" value="0.108" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_baseline_table_rows_24.xml" value="0.1" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_exit_24.xml" value="0.1005" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_firebase_24.xml" value="0.1525" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_heart_24.xml" value="0.1025" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_location_24.xml" value="0.1005" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_notifications_24.xml" value="0.1" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_person_add_disabled_24.xml" value="0.1525" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/drawable/ic_trending_up_24.xml" value="0.1" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/ac_details_app_inbox_list_item.xml" value="0.15208333333333332" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_app_inbox.xml" value="0.15208333333333332" />
-        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_main.xml" value="0.16770833333333332" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_ignore_view.xml" value="0.13125" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_recycler.xml" value="0.14735866543095458" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_register.xml" value="0.15208333333333332" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/activity_web.xml" value="0.1" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/dynamicview.xml" value="0.1" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/inner_list_item.xml" value="0.12395833333333334" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/item_design.xml" value="0.15208333333333332" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/layout_recycler.xml" value="0.12395833333333334" />
+        <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/layout/recycler_text_item.xml" value="0.12395833333333334" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1075" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1075" />
         <entry key="..\:/HarishReddy/NetcoreDemoPRojetcs/Netcore-smarttech-demo-java/app/src/main/res/xml/tags.xml" value="0.1421875" />

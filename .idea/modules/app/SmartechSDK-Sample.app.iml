@@ -34,7 +34,9 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/resValues/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
@@ -137,7 +139,7 @@
     <orderEntry type="library" name="Gradle: androidx.startup:startup-runtime:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.netcore.android:smartech-push:3.2.15@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.netcore.android:smartech-sdk:3.2.27@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.netcore.android:smartech-nudges:8.8.12@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.netcore.android:smartech-nudges:8.9.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.netcore.android:smartech-appinbox:3.2.10@aar" level="project" />
   </component>
 </module>

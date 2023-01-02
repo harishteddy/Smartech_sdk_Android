@@ -13,6 +13,9 @@ import com.netcore.smartech.sample.receiver.BroadcastReceiver;
 import com.netcore.smartech.sample.utils.Keys;
 import com.netcore.smartech.sample.utils.SharedPreferenceHelper;
 import java.lang.ref.WeakReference;
+
+import io.hansel.hanselsdk.Hansel;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edIdentity;
 
@@ -25,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }
-        /*Hansel.pairTestDevice(getIntent().getDataString());*/
+        Hansel.pairTestDevice(getIntent().getDataString());
         new BroadcastReceiver().onReceive(this, getIntent());
         setContentView(R.layout.activity_login);
         init();
@@ -40,6 +43,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     SharedPreferenceHelper.putBoolean(this, Keys.IS_USER_LOGGED_IN, true);
                     SharedPreferenceHelper.putString(this, Keys.LOGGED_IN_USER_IDENTITY, identity);
                     Smartech.getInstance(new WeakReference<>(this)).login(identity);
+                    //Setting User ID
+                    Hansel.getUser().setUserId(identity);
                     Smartech.getInstance(new WeakReference<>(this)).setUserIdentity(identity);
                     startActivity(new Intent(this, MainActivity.class));
                     finish();

@@ -47,4 +47,7 @@
     <string name="update_profile">Update Profile</string>
     <string name="user_identity_cleared">User Identity Cleared.</string>
     <string name="you_are_logged_out">You are logged out.</string>
+    <string name="nudges_px">Nudge(Product Experience)</string>
+    <string name="dynamicview">DYNAMIC VIEW</string>
+    <string name="invisiblecontainer">INVISIBLE CONTAINER</string>
 </resources>

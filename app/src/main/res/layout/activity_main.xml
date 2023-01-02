@@ -162,6 +162,7 @@
             style="@style/SectionItemStyle"
             android:text="@string/app_inbox"
             app:drawableStartCompat="@drawable/ic_notifications_24" />
+
         <TextView
             android:id="@+id/tv_customappinox"
             style="@style/SectionItemStyle"
@@ -191,6 +192,24 @@
             style="@style/SectionItemStyle"
             android:drawableStart="@drawable/ic_trending_up_24"
             android:text="@string/opt_tracking" />
+
+
+        <TextView
+            style="@style/SectionHeaderStyle"
+            android:layout_marginTop="10dp"
+            android:text="@string/nudges_px" />
+
+        <TextView
+            android:id="@+id/dynamicview"
+            style="@style/SectionItemStyle"
+            android:text="@string/dynamicview"
+            app:drawableStartCompat="@drawable/ic_dynamic_view" />
+        <TextView
+            android:id="@+id/invisiblecontainer"
+            style="@style/SectionItemStyle"
+            android:text="@string/invisiblecontainer"
+            app:drawableStartCompat="@drawable/ic_ignore_view" />
+
 
     </LinearLayout>
 

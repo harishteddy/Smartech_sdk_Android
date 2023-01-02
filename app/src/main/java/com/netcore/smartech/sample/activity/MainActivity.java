@@ -1,9 +1,13 @@
 package com.netcore.smartech.sample.activity;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -28,6 +32,7 @@ import java.util.HashMap;
 
 import io.hansel.hanselsdk.Hansel;
 import io.hansel.hanselsdk.HanselActionListener;
+import io.hansel.hanselsdk.HanselDeepLinkListener;
 import io.hansel.ujmtracker.HanselTracker;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -37,7 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         init();
         requestPermissions();
+
     }
+
+
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -92,14 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, R.string.tracking_checkout, Toast.LENGTH_SHORT).show();
 
 
-                HanselActionListener hanselActionListener = new HanselActionListener() {
-                    @Override
-                    public void onActionPerformed(String action) {
-                   // perform action write code here
-                        Toast.makeText(getApplicationContext(), "Harish", Toast.LENGTH_SHORT).show();
-                    }
-                };
-                Hansel.registerHanselActionListener("PhysicsWallah Testing", hanselActionListener);
 
 
             }
@@ -146,6 +146,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 SharedPreferenceHelper.putBoolean(this, Keys.IS_USER_LOGGED_IN, false);
                 SharedPreferenceHelper.putString(this, Keys.LOGGED_IN_USER_IDENTITY, null);
                 Smartech.getInstance(new WeakReference<>(this)).logoutAndClearUserIdentity(false);
+                //Reset everything
+                Hansel.getUser().clear();
+
 
                 startActivity(new Intent(this, LoginActivity.class));
                 Toast.makeText(this, R.string.you_are_logged_out, Toast.LENGTH_SHORT).show();
@@ -169,10 +172,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 smartechAppInbox.displayAppInbox(MainActivity.this);
                 Toast.makeText(getApplicationContext(),"Appinbox",Toast.LENGTH_SHORT).show();
             }
-
+     break;
             case R.id.tv_customappinox:{
                 startActivity(new Intent(MainActivity.this,AppInboxActivity.class));
 
+            }
+            break;
+            case R.id.dynamicview:{
+                startActivity(new Intent(MainActivity.this,Dynamicview.class));
+
+            }
+            break;
+            case R.id.invisiblecontainer:{
+                startActivity(new Intent(MainActivity.this,IgnoreViewActivity.class));
             }
         }
     }
@@ -220,6 +232,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.tv_appinox).setOnClickListener(this);
         findViewById(R.id.tv_customappinox).setOnClickListener(this);
         findViewById(R.id.tv_logout).setOnClickListener(this);
+        findViewById(R.id.dynamicview).setOnClickListener(this);
+        findViewById(R.id.invisiblecontainer).setOnClickListener(this);
 
         SwitchCompat swOptPn, swOptInApp, swOptTracking;
         swOptPn = findViewById(R.id.sw_opt_pn);

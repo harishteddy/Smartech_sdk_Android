@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.netcore.android:smartech-sdk:3.2.27'
     implementation 'com.netcore.android:smartech-push:3.2.15'
-    implementation 'com.netcore.android:smartech-nudges:8.8.12'
+    implementation 'com.netcore.android:smartech-nudges:8.9.2'
     implementation 'com.netcore.android:smartech-appinbox:3.2.10'
 
     // Butterknife

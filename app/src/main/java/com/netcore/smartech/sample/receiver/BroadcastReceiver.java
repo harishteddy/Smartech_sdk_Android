@@ -20,7 +20,7 @@ public class BroadcastReceiver extends android.content.BroadcastReceiver {
         if (bundleExtra != null) {
             if (bundleExtra.containsKey(SMTBundleKeys.SMT_BUNDLE_KEY_CLICK_DEEPLINK)) {
                 String deepLinkvalue = bundleExtra.getString(SMTBundleKeys.SMT_BUNDLE_KEY_CLICK_DEEPLINK);
-                if(deepLinkvalue!=null||deepLinkvalue!="") {
+                if(deepLinkvalue!=null&& !deepLinkvalue.equals("")) {
                     Log.v("smartech_broadcast", "deeplink:" + deepLinkvalue);
                     if (deepLinkvalue.startsWith("sampleapp://profile")) {
                         openprofile(context);
